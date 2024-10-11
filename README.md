@@ -22,3 +22,15 @@ Stay tuned for the code!
 <p align="center">
   <img src="./figures/prolip_figure.png/" style="width:100%"/>
 </p>
+
+Paper: https://arxiv.org/abs/2410.05270
+
+## Citation
+```
+@article{fahes2024fine,
+  title={Fine-Tuning CLIP's Last Visual Projector: A Few-Shot Cornucopia},
+  author={Fahes, Mohammad and Vu, Tuan-Hung and Bursuc, Andrei and P{\'e}rez, Patrick and de Charette, Raoul},
+  journal={arXiv preprint arXiv:2410.05270},
+  year={2024}
+}
+```
