@@ -14,6 +14,7 @@ TL; DR: CLIP projects visual embedding to the shared latent space using a linear
 
 Stay tuned for the code!
 
+Paper: https://arxiv.org/abs/2410.05270
 
 ## ProLIP
 <p align="center">
@@ -22,8 +23,6 @@ Stay tuned for the code!
 <p align="center">
   <img src="./figures/prolip_figure.png/" style="width:100%"/>
 </p>
-
-Paper: https://arxiv.org/abs/2410.05270
 
 ## Citation
 ```
