@@ -1,0 +1,15 @@
+# ------ root_path/dataset_name ------
+root_path: '/mnt/data1/' #Set the datasets path here
+output_dir: './results'
+
+# ------ Basic Config ------
+method: 'ProLIP'
+backbone: 'RN50'
+SUBSAMPLE_CLASSES: 'all'
+
+# ------ Hyper Parameters ------
+batch_size: 16    ### used only when saving the features, full FT and last layer FT. Not used for ProLIP
+
+save_features: True # saving pre-projection features
+aug_views : 300 # number of views used for training
+shuffle: False ### set to False by default: features are saved with no shuffling. Set to True when training Last layer or full fine-tuning to improve the performance

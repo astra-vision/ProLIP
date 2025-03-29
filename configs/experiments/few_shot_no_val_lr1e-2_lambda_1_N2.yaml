@@ -1,0 +1,23 @@
+# ------ root_path/dataset_name ------
+root_path: '/mnt/data1/' #Set the datasets path here
+output_dir: './results'
+
+# ------ Basic Config ------
+method: 'ProLIP'
+backbone: 'RN50'
+SUBSAMPLE_CLASSES: 'all'
+
+# ------ Hyper Parameters ------
+train_epoch: 300 
+batch_size: 16    ### used only when saving the features, full FT and last layer FT. Not used for ProLIP
+
+# ProLIP, Linear Adapter
+search_lr : False ## hyperparameter search: learning rate and lambda
+lr_v : 0.01
+lambda_v : 0
+lambda_funct_1_N : False
+lambda_funct_1_N2: True
+save_features: False # saving pre-projection features
+aug_views : 300 # number of views used for training
+shuffle: False ### set to False by default: features are saved with no shuffling. Set to True when training Last layer or full fine-tuning to improve the performance
+save_checkpoints: True

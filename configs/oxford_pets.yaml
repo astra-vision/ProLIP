@@ -1,0 +1,2 @@
+# ------ Basic Config ------
+dataset: 'oxford_pets'

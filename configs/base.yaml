@@ -1,0 +1,55 @@
+# ------ root_path/dataset_name ------
+root_path: '/mnt/data1/' #Set the datasets path here
+output_dir: './results'
+
+# ------ Basic Config ------
+method: 'ProLIP_text'
+backbone: 'RN50'
+SUBSAMPLE_CLASSES: 'all'
+
+# ------ Hyper Parameters ------
+lr: 0.00001        ### not used for ProLIP
+train_epoch: 300 
+batch_size: 16    ### used only when saving the features, full FT and last layer FT. Not used for ProLIP
+
+# ProLIP, Linear Adapter
+search_lr : False
+lr_v : 0.00001
+lambda_v : 0.1
+lambda_funct_1_N : True
+lambda_funct_1_N2: False
+save_features: False # saving pre-projection features
+aug_views : 300 # number of views used for training
+shuffle: True ### set to False by default: features are saved with no shuffling. Set to True when training Last layer or full fine-tuning to improve the performance
+
+# CLIPADAPTER
+alpha: 0.1
+lr_adapter: 0.001
+
+# COOP
+NCTX: 16
+CTX_INIT: ""
+CLASS_TOKEN_POSITION: "end"
+CSC: False
+WARMUP_EPOCH: 1
+WARMUP_CONS_LR: 0.00001
+PREC: "fp16"
+
+# CLIP_Adapter
+search_alpha_ca: False
+alpha_ca: 0.5
+
+# Tip_Adapter
+grid_search: False
+# ------ Load Cache and Features ------
+search_hp: True
+load_cache: False # Set to True after first run
+search_scale: [50, 50] 
+search_step: [200, 200]
+init_beta: 1
+init_alpha: 1 
+init_alpha_scale: 10
+augment_epoch: 1
+
+# Linear-Probe
+num_step: 8
