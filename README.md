@@ -71,7 +71,7 @@ conda install pytorch torchvision cudatoolkit
 Follow [DATASET.md](https://github.com/KaiyangZhou/CoOp/blob/main/DATASETS.md) to install the datasets.
 
 # Running ProLIP
-Before running ProLIP, make sure to change `root_path` in the configuration files at [`configs/experiments`](https://github.com/astra-vision/ProLIP/tree/main/configs/experiments) to the path of the datasets.
+Before running ProLIP, make sure to change `root_path` in the configuration files at [`configs/experiments`](https://github.com/astra-vision/ProLIP/tree/master/configs/experiments) to the path of the datasets.
 
 ## Saving Pre-projection Features
 First, start by saving the pre-projection features; i.e. the features to which the linear projection of CLIP is applied.
@@ -80,7 +80,7 @@ First, start by saving the pre-projection features; i.e. the features to which t
 bash scripts/save_features.sh
 ```
 
-You can change the backbone in [`save_features.yaml`](https://github.com/astra-vision/ProLIP/blob/main/configs/experiments/save_feat.yaml) if you want its corresponding features.
+You can change the backbone in [`save_features.yaml`](https://github.com/astra-vision/ProLIP/blob/master/configs/experiments/save_feat.yaml) if you want its corresponding features.
 
 From now on, you can directly train the projection layer using these features, requiring up to 2 seconds per training.
 
@@ -169,7 +169,7 @@ To obtain the results of cross-dataset generalization, i.e. training on 4-shot i
 bash scripts/train_4_shot_imagenet.sh
 ```
 
-(Note: No need to run the script above if you have already run [`bash scripts/few_shot_no_val_lr1e-5_lambda_1_N.sh`](https://github.com/astra-vision/ProLIP/blob/main/scripts/few_shot_no_val_lr1e-5_lambda_1_N.sh) and have set `save_checkpoints` to `True` in [`configs/experiments/few_shot_no_val_lr1e-5_lambda_1_N.yaml`](https://github.com/astra-vision/ProLIP/blob/main/configs/experiments/few_shot_no_val_lr1e-5_lambda_1_N.yaml))
+(Note: No need to run the script above if you have already run [`bash scripts/few_shot_no_val_lr1e-5_lambda_1_N.sh`](https://github.com/astra-vision/ProLIP/blob/master/scripts/few_shot_no_val_lr1e-5_lambda_1_N.sh) and have set `save_checkpoints` to `True` in [`configs/experiments/few_shot_no_val_lr1e-5_lambda_1_N.yaml`](https://github.com/astra-vision/ProLIP/blob/master/configs/experiments/few_shot_no_val_lr1e-5_lambda_1_N.yaml))
 
 Then test on the other datasets:
 
@@ -190,7 +190,7 @@ bash scripts/save_features_IN_VITB16.sh
 bash scripts/save_features_IN_VITB32.sh
 ```
 
-(Note: No need to run [`bash scripts/save_features_IN_RN50.sh`](https://github.com/astra-vision/ProLIP/blob/main/scripts/save_features_IN_RN50.sh) if you have already run [`bash scripts/save_features.sh`](https://github.com/astra-vision/ProLIP/blob/main/scripts/save_features.sh))
+(Note: No need to run [`bash scripts/save_features_IN_RN50.sh`](https://github.com/astra-vision/ProLIP/blob/master/scripts/save_features_IN_RN50.sh) if you have already run [`bash scripts/save_features.sh`](https://github.com/astra-vision/ProLIP/blob/master/scripts/save_features.sh))
 
 Then train the models using:
 
@@ -201,7 +201,7 @@ bash scripts/DG_VITB16.sh
 bash scripts/DG_VITB32.sh
 ```
 
-(Note: No need to run [`bash scripts/train_4_shot_imagenet.sh`](https://github.com/astra-vision/ProLIP/blob/main/scripts/train_4_shot_imagenet.sh) if you have already run [`bash scripts/few_shot_no_val_lr1e-5_lambda_1_N.sh`](https://github.com/astra-vision/ProLIP/blob/main/scripts/few_shot_no_val_lr1e-5_lambda_1_N.sh) and have set `save_checkpoints` to `True` in [`configs/experiments/few_shot_no_val_lr1e-5_lambda_1_N.yaml`](https://github.com/astra-vision/ProLIP/blob/main/configs/experiments/few_shot_no_val_lr1e-5_lambda_1_N.yaml))
+(Note: No need to run [`bash scripts/train_4_shot_imagenet.sh`](https://github.com/astra-vision/ProLIP/blob/master/scripts/train_4_shot_imagenet.sh) if you have already run [`bash scripts/few_shot_no_val_lr1e-5_lambda_1_N.sh`](https://github.com/astra-vision/ProLIP/blob/master/scripts/few_shot_no_val_lr1e-5_lambda_1_N.sh) and have set `save_checkpoints` to `True` in [`configs/experiments/few_shot_no_val_lr1e-5_lambda_1_N.yaml`](https://github.com/astra-vision/ProLIP/blob/master/configs/experiments/few_shot_no_val_lr1e-5_lambda_1_N.yaml))
 
 This will automatically output the results on the out-of-distribution variants. Using these commands, you can obtain the results of [**Table 4**](https://arxiv.org/abs/2410.05270) of the paper.
 
