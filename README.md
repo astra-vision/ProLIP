@@ -91,7 +91,7 @@ To obtain the results of few-shot classification with a few-shot validation set 
 bash scripts/few_shot_few_val.sh
 ```
 
-These experiments correspond to [**Table 1**](https://arxiv.org/abs/2410.05270), [**Table 20**](https://arxiv.org/abs/2410.05270) and [**Table 21**](https://arxiv.org/abs/2410.05270) of the paper.
+These experiments correspond to [**Table 1**](https://www.semanticscholar.org/paper/CLIP's-Visual-Embedding-Projector-is-a-Few-shot-Fahes-Vu/704775071c2c188f690cc5974a4b3ee6f7e204bf/figure/0), [**Table 20**](https://www.semanticscholar.org/paper/CLIP's-Visual-Embedding-Projector-is-a-Few-shot-Fahes-Vu/704775071c2c188f690cc5974a4b3ee6f7e204bf/figure/25) and [**Table 21**](https://www.semanticscholar.org/paper/CLIP's-Visual-Embedding-Projector-is-a-Few-shot-Fahes-Vu/704775071c2c188f690cc5974a4b3ee6f7e204bf/figure/26) of the paper.
 
 ## ProLIP sensitivity to hyperparameters
 To obtain the results of few-shot classification for different combinations of hyperparameters (i.e. Learning rate (lr) and $\lambda$), please run:
@@ -125,7 +125,7 @@ bash scripts/few_shot_no_val_lr1e-2_lambda_0.sh
 
 Note that each of these lines corresponds to a specific combination of lr and $\lambda$. For instance `bash scripts/few_shot_no_val_lr1e-3_lambda_1e-1.sh` runs the training for lr=0.001 and $\lambda$=0.1. Each line also corresponds to 550 trainings (11 datasets, 10 support sets, 5 few-shot configurations: 1,2,4,8 and 16 shots).
 
-Using these commands, you can obtain the results of [**Figure 3**](https://arxiv.org/abs/2410.05270) and [**Table 10**](https://arxiv.org/abs/2410.05270) of the paper.
+Using these commands, you can obtain the results of [**Figure 3**](https://www.semanticscholar.org/paper/CLIP's-Visual-Embedding-Projector-is-a-Few-shot-Fahes-Vu/704775071c2c188f690cc5974a4b3ee6f7e204bf/figure/3) and [**Table 10**](https://www.semanticscholar.org/paper/CLIP's-Visual-Embedding-Projector-is-a-Few-shot-Fahes-Vu/704775071c2c188f690cc5974a4b3ee6f7e204bf/figure/15) of the paper.
 
 The results show two interesting observations: 1) Using regularization $\lambda \neq 0$ prevents severe overfitting when using high learning rates, 2) Lower $\lambda$ values are better for higher N and vice versa, and that's expected as with less data there's a higher risk of overfitting.
 
@@ -154,7 +154,7 @@ bash scripts/few_shot_no_val_lr1e-3_lambda_1_N2.sh
 bash scripts/few_shot_no_val_lr1e-2_lambda_1_N2.sh
 ```
 
-Using these commands, you can obtain the results of [**Table 2**](https://arxiv.org/abs/2410.05270) and [**Table 11**](https://arxiv.org/abs/2410.05270) of the paper.
+Using these commands, you can obtain the results of [**Table 2**](https://www.semanticscholar.org/paper/CLIP's-Visual-Embedding-Projector-is-a-Few-shot-Fahes-Vu/704775071c2c188f690cc5974a4b3ee6f7e204bf/figure/2) and [**Table 11**](https://www.semanticscholar.org/paper/CLIP's-Visual-Embedding-Projector-is-a-Few-shot-Fahes-Vu/704775071c2c188f690cc5974a4b3ee6f7e204bf/figure/16) of the paper.
 
 When using $\lambda$ that is inversly proportional to N, the results are stable across learning rate and almost match grid search results, yet **without any valdiation set**.
 
@@ -178,7 +178,7 @@ Then test on the other datasets:
 bash scripts/cross_dataset.sh
 ```
 
-Using these commands, you can obtain the results of [**Table 3**](https://arxiv.org/abs/2410.05270) of the paper.
+Using these commands, you can obtain the results of [**Table 3**](https://www.semanticscholar.org/paper/CLIP's-Visual-Embedding-Projector-is-a-Few-shot-Fahes-Vu/704775071c2c188f690cc5974a4b3ee6f7e204bf/figure/4) of the paper.
 
 
 ## Domain Generalization
@@ -204,7 +204,7 @@ bash scripts/DG_VITB32.sh
 
 (Note: No need to run [`bash scripts/train_4_shot_imagenet.sh`](https://github.com/astra-vision/ProLIP/blob/master/scripts/train_4_shot_imagenet.sh) if you have already run [`bash scripts/few_shot_no_val_lr1e-5_lambda_1_N.sh`](https://github.com/astra-vision/ProLIP/blob/master/scripts/few_shot_no_val_lr1e-5_lambda_1_N.sh) and have set `save_checkpoints` to `True` in [`configs/experiments/few_shot_no_val_lr1e-5_lambda_1_N.yaml`](https://github.com/astra-vision/ProLIP/blob/master/configs/experiments/few_shot_no_val_lr1e-5_lambda_1_N.yaml))
 
-This will automatically output the results on the out-of-distribution variants. Using these commands, you can obtain the results of [**Table 4**](https://arxiv.org/abs/2410.05270) of the paper.
+This will automatically output the results on the out-of-distribution variants. Using these commands, you can obtain the results of [**Table 4**](https://www.semanticscholar.org/paper/CLIP's-Visual-Embedding-Projector-is-a-Few-shot-Fahes-Vu/704775071c2c188f690cc5974a4b3ee6f7e204bf/figure/5) of the paper.
 
 
 ## Base-to-new Generalization
@@ -240,7 +240,7 @@ Finally evaluate the trained models on new classes:
 bash scripts/new_classes_eval_VITB16.sh
 ```
 
-Using these commands, you can obtain the results of [**Table 5**](https://arxiv.org/abs/2410.05270), [**Table 14**](https://arxiv.org/abs/2410.05270) and [**Table 15**](https://arxiv.org/abs/2410.05270) of the paper.
+Using these commands, you can obtain the results of [**Table 5**](https://www.semanticscholar.org/paper/CLIP's-Visual-Embedding-Projector-is-a-Few-shot-Fahes-Vu/704775071c2c188f690cc5974a4b3ee6f7e204bf/figure/7), [**Table 14**](https://www.semanticscholar.org/paper/CLIP's-Visual-Embedding-Projector-is-a-Few-shot-Fahes-Vu/704775071c2c188f690cc5974a4b3ee6f7e204bf/figure/19) and [**Table 15**](https://www.semanticscholar.org/paper/CLIP's-Visual-Embedding-Projector-is-a-Few-shot-Fahes-Vu/704775071c2c188f690cc5974a4b3ee6f7e204bf/figure/20) of the paper.
 
 ## Full FT and Last-layer FT
 To obtain the results of Full fine-tuning of the vision encoder, please run:
@@ -256,7 +256,7 @@ bash scripts/last_layer_ft_lr1e-5.sh
 bash scripts/last_layer_ft_lr1e-4.sh
 ```
 
-Using these commands, you can obtain the results of [**Table 6**](https://arxiv.org/abs/2410.05270) of the paper.
+Using these commands, you can obtain the results of [**Table 6**](https://www.semanticscholar.org/paper/CLIP's-Visual-Embedding-Projector-is-a-Few-shot-Fahes-Vu/704775071c2c188f690cc5974a4b3ee6f7e204bf/figure/9) of the paper.
 
 
 ## Complementarity to other methods
@@ -272,7 +272,7 @@ To obtain the results of combining the logits of ProLIP and those of [`TaskRes`]
 bash scripts/prolip_taskres.sh
 ```
 
-Using these commands, you can obtain the results of [**Table 7**](https://arxiv.org/abs/2410.05270) of the paper.
+Using these commands, you can obtain the results of [**Table 7**](https://www.semanticscholar.org/paper/CLIP's-Visual-Embedding-Projector-is-a-Few-shot-Fahes-Vu/704775071c2c188f690cc5974a4b3ee6f7e204bf/figure/11) of the paper.
 
 
 ## Regularized Linear Adapter
@@ -322,7 +322,7 @@ bash scripts/RLA_lr1e-2_lambda_1_N.sh
   <img width=900  src="Figures/regularized_linear_adapter_overview.png"/>
 </div>
 
-Using these commands, you can obtain the results of [**Figure 4**](https://arxiv.org/abs/2410.05270) and [**Table 16**](https://arxiv.org/abs/2410.05270) of the paper.
+Using these commands, you can obtain the results of [**Figure 4**](https://www.semanticscholar.org/paper/CLIP's-Visual-Embedding-Projector-is-a-Few-shot-Fahes-Vu/704775071c2c188f690cc5974a4b3ee6f7e204bf/figure/6) and [**Table 16**](https://www.semanticscholar.org/paper/CLIP's-Visual-Embedding-Projector-is-a-Few-shot-Fahes-Vu/704775071c2c188f690cc5974a4b3ee6f7e204bf/figure/21) of the paper.
 
 The results help rethinking CLIP-adapter from the perspective of ProLIP, and show that the regularized linear adapter 1) outperforms the classical non-linear adapter, 2) alleviates the need of architecture design and hyperparameter selection, and 3) exhibits stable performance across different learning rates.
 
@@ -340,7 +340,7 @@ bash scripts/prolip_text_lr1e-3_lambda_1_N.sh
 bash scripts/prolip_text_lr1e-2_lambda_1_N.sh
 ```
 
-Using these commands, you can obtain the results of [**Table 8**](https://arxiv.org/abs/2410.05270) and [**Table 13**](https://arxiv.org/abs/2410.05270) of the paper.
+Using these commands, you can obtain the results of [**Table 8**](https://www.semanticscholar.org/paper/CLIP's-Visual-Embedding-Projector-is-a-Few-shot-Fahes-Vu/704775071c2c188f690cc5974a4b3ee6f7e204bf/figure/13) and [**Table 13**](https://www.semanticscholar.org/paper/CLIP's-Visual-Embedding-Projector-is-a-Few-shot-Fahes-Vu/704775071c2c188f690cc5974a4b3ee6f7e204bf/figure/18) of the paper.
 
 ## Average Accuracy
 
