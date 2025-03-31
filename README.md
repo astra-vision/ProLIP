@@ -158,8 +158,9 @@ Using these commands, you can obtain the results of [**Table 2**](https://arxiv.
 
 When using $\lambda$ that is inversly proportional to N, the results are stable across learning rate and almost match grid search results, yet **without any valdiation set**.
 
-<div align="center">
-  <img width=300  src="Figures/table2a.png"/>
+<div align="center" style="display: flex; justify-content: center; align-items: center;">
+  <img width=300 src="Figures/table2a.png"/>
+  <img width=500 src="Figures/validation_free_results.png"/>
 </div>
 
 ## Cross-dataset Generalization
@@ -276,10 +277,6 @@ Using these commands, you can obtain the results of [**Table 7**](https://arxiv.
 
 ## Regularized Linear Adapter
 
-<div align="center">
-  <img width=900  src="Figures/regularized_linear_adapter_overview.png"/>
-</div>
-
 To obtain the results of CLIP-adapter with different learning rate (lr) and residual ratio ($\alpha$) values, please run:
 
 ```
@@ -320,6 +317,10 @@ bash scripts/RLA_lr1e-4_lambda_1_N.sh
 bash scripts/RLA_lr1e-3_lambda_1_N.sh
 bash scripts/RLA_lr1e-2_lambda_1_N.sh
 ```
+
+<div align="center">
+  <img width=900  src="Figures/regularized_linear_adapter_overview.png"/>
+</div>
 
 Using these commands, you can obtain the results of [**Figure 4**](https://arxiv.org/abs/2410.05270) and [**Table 16**](https://arxiv.org/abs/2410.05270) of the paper.
 
