@@ -242,6 +242,17 @@ bash scripts/new_classes_eval_VITB16.sh
 
 Using these commands, you can obtain the results of [**Table 5**](https://www.semanticscholar.org/paper/CLIP's-Visual-Embedding-Projector-is-a-Few-shot-Fahes-Vu/704775071c2c188f690cc5974a4b3ee6f7e204bf/figure/7), [**Table 14**](https://www.semanticscholar.org/paper/CLIP's-Visual-Embedding-Projector-is-a-Few-shot-Fahes-Vu/704775071c2c188f690cc5974a4b3ee6f7e204bf/figure/19) and [**Table 15**](https://www.semanticscholar.org/paper/CLIP's-Visual-Embedding-Projector-is-a-Few-shot-Fahes-Vu/704775071c2c188f690cc5974a4b3ee6f7e204bf/figure/20) of the paper.
 
+⚠️⚠️**Note**: Using "a photo of a {}." instead of the dataset-specific templates in ([datasets](https://github.com/astra-vision/ProLIP/tree/master/datasets)) improves base-to-new generalization performance for ViT-B/16 trained in the 16-shot setting. New results are in the table below for comparison.
+
+| Name    | Trainable Parameters |  Base Accuracy   |   Novel Accuracy  |   Harmonic Mean   |
+| --------------- | --------------- | --------------- | --------------- | --------------- |
+| [CLIP](https://arxiv.org/abs/2103.00020)       | 0.00M  | 69.34 | 74.22 | 71.70 |
+| [CoOp](https://arxiv.org/abs/2109.01134)       | 0.002M  | 82.69 | 63.22 | 71.66 |
+| [CoCoOp](https://arxiv.org/abs/2203.05557)     | 0.035M  | 80.47 | 71.69 | 75.83 |
+| [MaPLe](https://arxiv.org/abs/2210.03117)      | 3.55M  | 82.28 | **75.14** | 78.55 |
+| ProLIP (ours) | 0.39M | **84.01** | 73.86 | 78.61 |
+| ProLIP (ours) w/ "a photo of a {}." | 0.39M | 83.90 | 74.78 | **79.08**
+
 ## Full FT and Last-layer FT
 To obtain the results of Full fine-tuning of the vision encoder, please run:
 
