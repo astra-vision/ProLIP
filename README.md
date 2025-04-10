@@ -244,8 +244,8 @@ Using these commands, you can obtain the results of [**Table 5**](https://www.se
 
 ⚠️⚠️**Note**: Using "a photo of a {}." instead of the dataset-specific templates in ([datasets](https://github.com/astra-vision/ProLIP/tree/master/datasets)) improves base-to-new generalization performance for ViT-B/16 trained in the 16-shot setting. New results are in the table below for comparison.
 
-| Name    | Trainable Parameters |  Base Accuracy   |   Novel Accuracy  |   Harmonic Mean   |
-| --------------- | --------------- | --------------- | --------------- | --------------- |
+| Method   | Trainable Parameters |  Base Accuracy   |   Novel Accuracy  |   Harmonic Mean   |
+| :---------------: | :---------------: | :---------------: | :---------------: | :---------------: |
 | [CLIP](https://arxiv.org/abs/2103.00020)       | 0.00M  | 69.34 | 74.22 | 71.70 |
 | [CoOp](https://arxiv.org/abs/2109.01134)       | 0.002M  | 82.69 | 63.22 | 71.66 |
 | [CoCoOp](https://arxiv.org/abs/2203.05557)     | 0.035M  | 80.47 | 71.69 | 75.83 |
