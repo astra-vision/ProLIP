@@ -44,7 +44,7 @@
   - [Regularized Linear Adapter](#regularized-linear-adapter)
   - [ProLIP Text](#prolip-text)
   - [Average Accuracy](#average-accuracy)
-- [Test-time Prolip](#test-time-prolip)
+- [Test-time ProLIP](#test-time-prolip)
 - [Acknowledgement](#acknowledgement)
 - [Citation](#citation)
 
@@ -357,9 +357,9 @@ Running any of the trainings above will output `.txt` files containing the avera
 python results/mean_std.py --acc_path <path_to_the_accuracy_values>
 ```
 
-# Test-time Prolip
+# Test-time ProLIP
 
-In these experiments, we apply the same framework of CLIP test-time adaptation as [`TPT`](https://arxiv.org/abs/2209.07511). Instead of learning a prompt per image on the fly, the projection matrix is trained. This variant of ProLIP is called test-time ProLIP. It is more than 13 times faster than `TPT` as backpropagation is limited to the projection matrix, and achieves suprising strong performance on test-time adaptation. Test-time ProLIP is illustrated in the figure below, taken from [`TPT`](https://arxiv.org/abs/2209.07511).
+In these experiments, we apply the same framework of CLIP test-time adaptation as [`TPT`](https://arxiv.org/abs/2209.07511). Instead of learning a prompt per image on the fly, the projection matrix is trained on the fly. This variant of ProLIP is called test-time ProLIP. It is more than 13 times faster than `TPT` as backpropagation is limited to the projection matrix, and achieves surprising strong performance on test-time adaptation. Test-time ProLIP is illustrated in the figure below, taken from [`TPT`](https://arxiv.org/abs/2209.07511).
 
 <div align="center">
   <img width=900  src="Figures/test_time_prolip.png"/>
@@ -422,14 +422,9 @@ Using these commands, you can obtain the results of [**Table 9**](https://www.se
 | ProLIP-test-time + ProLIP (16-shot)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;                    | **66.90**| **32.96**  | **58.77**   | **61.78**  | **36.97**        | **51.48**| **47.62**   |
 
 
-
-
-
-
-
 # Acknowledgement
 This work was partially funded by French project SIGHT (ANR-20-CE23-0016). It was performed using HPC resources from GENCI–IDRIS (Grants AD011014477R1, AD011012808R3). The authors thank Clément Weinreich for insightful discussion.
-This repository is built on top of [`LP++`](https://github.com/FereshteShakeri/FewShot-CLIP-Strong-Baseline), [`TPT`](https://arxiv.org/abs/2209.07511), [`Tip-adapter`](https://github.com/gaopengcuhk/Tip-Adapter), and [`CLIP`](https://github.com/openai/CLIP). Thanks to the authors for making their work open-source!
+This repository is built on top of [`LP++`](https://github.com/FereshteShakeri/FewShot-CLIP-Strong-Baseline), [`TPT`](https://github.com/azshue/TPT), [`Tip-adapter`](https://github.com/gaopengcuhk/Tip-Adapter), and [`CLIP`](https://github.com/openai/CLIP). Thanks to the authors for making their work open-source!
 
 # Citation
 ```
