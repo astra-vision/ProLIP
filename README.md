@@ -411,11 +411,6 @@ python test_time_ProLIP/tpt_classification_prolip.py <path_to_dataset> --test_se
 
 Using these commands, you can obtain the results of [**Table 9**](https://www.semanticscholar.org/paper/CLIP's-Visual-Embedding-Projector-is-a-Few-shot-Fahes-Vu/704775071c2c188f690cc5974a4b3ee6f7e204bf/figure/14) of the paper.
 
-<table>
-  <tr>
-    <td colspan="8" align="center"><em>w/o few-shot training on ImageNet</em></td>
-  </tr>
-</table>
 
 | Method   | ImageNet | ImageNet-A | ImageNet-V2 | ImageNet-R | ImageNet-Sketch | Average | Average OOD |
 |:--------:|:--------:|:----------:|:-----------:|:----------:|:----------------:|:-------:|:------------:|
