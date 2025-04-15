@@ -419,14 +419,12 @@ Using these commands, you can obtain the results of [**Table 9**](https://www.se
 
 | Method   | ImageNet | ImageNet-A | ImageNet-V2 | ImageNet-R | ImageNet-Sketch | Average | Average OOD |
 |:--------:|:--------:|:----------:|:-----------:|:----------:|:----------------:|:-------:|:------------:|
-| *w/o few-shot training on ImageNet*
 | [TPT](https://arxiv.org/abs/2209.07511)       | 60.74 | 26.67 | 54.70 | 59.11 | 35.09 |  47.26 | 43.89 |
 | ProLIP-test-time      | **62.00** | **33.76** | **56.03** |  **62.69** | **37.29** | **50.35** | **47.44** |
-| *w/ 16-shot training on ImageNet*
-| [CoOp](https://arxiv.org/abs/2109.01134)     | 63.33 | 23.06 | 55.40 | 56.60 | 34.67 | 46.61 | 42.43 |
-| [TPT](https://arxiv.org/abs/2209.07511) + [CoOp](https://arxiv.org/abs/2109.01134) | 64.73 | 30.32 | 57.83 | 58.99 | 35.86 | 49.55 | 45.75 |
-| ProLIP | 64.48 | 22.75 | 56.24 | 59.56 | 34.80 | 47.57 | 43.34 |
-| ProLIP-test-time + ProLIP | **66.90** | **32.96** | **58.77** | **61.78** | **36.97** | **51.48** | **47.62** |
+| [CoOp](https://arxiv.org/abs/2109.01134) (16-shot)    | 63.33 | 23.06 | 55.40 | 56.60 | 34.67 | 46.61 | 42.43 |
+| [TPT](https://arxiv.org/abs/2209.07511) + [CoOp](https://arxiv.org/abs/2109.01134) (16-shot) | 64.73 | 30.32 | 57.83 | 58.99 | 35.86 | 49.55 | 45.75 |
+| ProLIP (16-shot) | 64.48 | 22.75 | 56.24 | 59.56 | 34.80 | 47.57 | 43.34 |
+| ProLIP-test-time + ProLIP (16-shot) | **66.90** | **32.96** | **58.77** | **61.78** | **36.97** | **51.48** | **47.62** |
 
 
 
