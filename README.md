@@ -27,10 +27,6 @@
 </div>
 
 
-## 🚨 Todo
-
-- Test-time adaptation code.
-
 # Table of Content
 - [Installation](#installation)
   - [Dependencies](#dependencies)
@@ -362,11 +358,74 @@ python results/mean_std.py --acc_path <path_to_the_accuracy_values>
 ```
 
 # Test-time Prolip
-🚨 Todo: I will add the code soon.
+
+In these experiments, we apply the same framework of CLIP test-time adaptation as [`TPT`](https://arxiv.org/abs/2209.07511). Instead of learning a prompt per image on the fly, the projection matrix is trained. This variant of ProLIP is called test-time ProLIP. It is more than 13 times faster than `TPT` as backpropagation is limited to the projection matrix, and achieves suprising strong performance on test-time adaptation. Test-time ProLIP is illustrated in the figure below, taken from [`TPT`](https://arxiv.org/abs/2209.07511).
+
+<div align="center">
+  <img width=900  src="Figures/test_time_prolip.png"/>
+</div>
+
+To obtain the results of test-time adaptation of CLIP using ProLIP, i.e. training the projection matrix for 1 iteration per image on the fly, please run:
+
+ImageNet:
+```
+python test_time_ProLIP/tpt_classification_prolip.py <path_to_dataset> --test_sets I -b 64 --gpu 0 --tpt --lr 0.0001 --tta_steps 1
+```
+
+ImageNet-A:
+```
+python test_time_ProLIP/tpt_classification_prolip.py <path_to_dataset> --test_sets A -b 64 --gpu 0 --tpt --lr 0.0001 --tta_steps 1
+```
+
+ImageNet-V2:
+```
+python test_time_ProLIP/tpt_classification_prolip.py <path_to_dataset> --test_sets V -b 64 --gpu 0 --tpt --lr 0.0001 --tta_steps 1
+```
+
+ImageNet-R:
+```
+python test_time_ProLIP/tpt_classification_prolip.py <path_to_dataset> --test_sets R -b 64 --gpu 0 --tpt --lr 0.0001 --tta_steps 1
+```
+
+ImageNet-Sketch:
+```
+python test_time_ProLIP/tpt_classification_prolip.py <path_to_dataset> --test_sets K -b 64 --gpu 0 --tpt --lr 0.0001 --tta_steps 1
+```
+
+To obtain the results of test-time ProLIP starting from a checkpoint where the projection matrix is trained on 16-shot ImageNet, all you have to do is adding `--load <path_to_checkpoint>` to the commands above, where `<path_to_checkpoint>` is the path to the checkpoint trained on 16-shot ImageNet. You should have the latter if you have already run [`bash scripts/few_shot_no_val_lr1e-5_lambda_1_N.sh`](https://github.com/astra-vision/ProLIP/blob/master/scripts/few_shot_no_val_lr1e-5_lambda_1_N.sh) and have set `save_checkpoints` to `True` in [`configs/experiments/few_shot_no_val_lr1e-5_lambda_1_N.yaml`](https://github.com/astra-vision/ProLIP/blob/master/configs/experiments/few_shot_no_val_lr1e-5_lambda_1_N.yaml). 
+
+Otherwise, if not already done, you can obtain the 16-shot training checkpoint (on ImageNet) using:
+
+```
+python main_imagenet.py --base_config configs/experiments/few_shot_no_val_lr1e-5_lambda_1_N.yaml --dataset_config configs/imagenet.yaml --seed 1 --shots 16
+```
+
+Just make sure before that `save_checkpoints` is set to `True` in [`configs/experiments/few_shot_no_val_lr1e-5_lambda_1_N.yaml`](https://github.com/astra-vision/ProLIP/blob/master/configs/experiments/few_shot_no_val_lr1e-5_lambda_1_N.yaml) and replace `root_path` by the path to the datasets.
+
+An example of the command to run ProLIP-test-time on top of ProLIP-16-shot of ImageNet-A:
+
+ImageNet-A:
+```
+python test_time_ProLIP/tpt_classification_prolip.py <path_to_dataset> --test_sets A -b 64 --gpu 0 --tpt --lr 0.0001 --tta_steps 1 --load <path_to_checkpoint>
+```
+
+Using these commands, you can obtain the results of [**Table 9**](https://www.semanticscholar.org/paper/CLIP's-Visual-Embedding-Projector-is-a-Few-shot-Fahes-Vu/704775071c2c188f690cc5974a4b3ee6f7e204bf/figure/14) of the paper.
+
+| Method   | ImageNet |  ImageNet-A   |   ImageNet-V2  |   ImageNet-R   | ImageNet-Sketch | Average | Average OOD
+| :---------------: | :---------------: | :---------------: | :---------------: | :---------------: | :---------------: | :---------------: | :---------------: |
+*w/o few-shot training on ImageNet*
+| [TPT](https://arxiv.org/abs/2209.07511)       | 60.74 | 26.67 | 54.70 | 59.11 | 35.09 |  47.26 | 43.89
+| ProLIP-test-time      | **62.00** | **33.76** | **56.03** |  **62.69** | **37.29** | **50.35** | **47.44**
+*w/ 16-shot training on ImageNet*
+| [CoOp](https://arxiv.org/abs/2109.01134)     | 63.33 | 23.06 | 55.40 | 56.60 | 34.67 | 46.61 | 42.43
+| [TPT](https://arxiv.org/abs/2209.07511) + [CoOp](https://arxiv.org/abs/2109.01134) | 64.73 | 30.32 | 57.83 | 58.99 | 35.86 | 49.55 | 45.75
+| ProLIP | 64.48 | 22.75 | 56.24 | 59.56 | 34.80 | 47.57 | 43.34
+| ProLIP-test-time + ProLIP | **66.90** | **32.96** | **58.77** | **61.78** | **36.97** | **51.48** | **47.62**
+
 
 # Acknowledgement
 This work was partially funded by French project SIGHT (ANR-20-CE23-0016). It was performed using HPC resources from GENCI–IDRIS (Grants AD011014477R1, AD011012808R3). The authors thank Clément Weinreich for insightful discussion.
-This repository is built on top of [`LP++`](https://github.com/FereshteShakeri/FewShot-CLIP-Strong-Baseline), [`Tip-adapter`](https://github.com/gaopengcuhk/Tip-Adapter), and [`CLIP`](https://github.com/openai/CLIP). Thanks to the authors for making their work open-source!
+This repository is built on top of [`LP++`](https://github.com/FereshteShakeri/FewShot-CLIP-Strong-Baseline), [`TPT`](https://arxiv.org/abs/2209.07511), [`Tip-adapter`](https://github.com/gaopengcuhk/Tip-Adapter), and [`CLIP`](https://github.com/openai/CLIP). Thanks to the authors for making their work open-source!
 
 # Citation
 ```
