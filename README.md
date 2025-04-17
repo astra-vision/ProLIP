@@ -23,7 +23,7 @@
 </div>
 
 <div align="center">
-  <img width=900  src="Figures/prolip_overview.png"/>
+  <img width=900  src="figures/prolip_overview.png"/>
 </div>
 
 
@@ -128,7 +128,7 @@ The results show two interesting observations: 1) Using regularization $\lambda 
 Thus, $\lambda$ can be simply chosen as a decreasing function of N.
 
 <div align="center">
-  <img width=900  src="Figures/hyperparams_sens.png"/>
+  <img width=900  src="figures/hyperparams_sens.png"/>
 </div>
 
 ## Few-shot classification without validation set
@@ -155,8 +155,8 @@ Using these commands, you can obtain the results of [**Table 2**](https://www.se
 When using $\lambda$ that is inversly proportional to N, the results are stable across learning rate and almost match grid search results, yet **without any valdiation set**.
 
 <div align="center" style="display: flex; justify-content: center; align-items: center;">
-  <img width=300 src="Figures/table2a.png"/>
-  <img width=500 src="Figures/validation_free_results.png"/>
+  <img width=300 src="figures/table2a.png"/>
+  <img width=500 src="figures/validation_free_results.png"/>
 </div>
 
 ## Cross-dataset Generalization
@@ -326,7 +326,7 @@ bash scripts/RLA_lr1e-2_lambda_1_N.sh
 ```
 
 <div align="center">
-  <img width=900  src="Figures/regularized_linear_adapter_overview.png"/>
+  <img width=900  src="figures/regularized_linear_adapter_overview.png"/>
 </div>
 
 Using these commands, you can obtain the results of [**Figure 4**](https://www.semanticscholar.org/paper/CLIP's-Visual-Embedding-Projector-is-a-Few-shot-Fahes-Vu/704775071c2c188f690cc5974a4b3ee6f7e204bf/figure/6) and [**Table 16**](https://www.semanticscholar.org/paper/CLIP's-Visual-Embedding-Projector-is-a-Few-shot-Fahes-Vu/704775071c2c188f690cc5974a4b3ee6f7e204bf/figure/21) of the paper.
@@ -334,7 +334,7 @@ Using these commands, you can obtain the results of [**Figure 4**](https://www.s
 The results help rethinking CLIP-adapter from the perspective of ProLIP, and show that the regularized linear adapter 1) outperforms the classical non-linear adapter, 2) alleviates the need of architecture design and hyperparameter selection, and 3) exhibits stable performance across different learning rates.
 
 <div align="center">
-  <img width=900  src="Figures/regularized_linear_adapter.png"/>
+  <img width=900  src="figures/regularized_linear_adapter.png"/>
 </div>
 
 ## ProLIP Text
@@ -359,10 +359,10 @@ python results/mean_std.py --acc_path <path_to_the_accuracy_values>
 
 # Test-time ProLIP
 
-In these experiments, we apply the same framework of CLIP test-time adaptation as [`TPT`](https://arxiv.org/abs/2209.07511). Instead of learning a prompt per image on the fly, the projection matrix is trained on the fly. This variant of ProLIP is called test-time ProLIP. It is more than 13 times faster than `TPT` as backpropagation is limited to the projection matrix, and achieves surprising strong performance on test-time adaptation. Test-time ProLIP is illustrated in the figure below, taken from [`TPT`](https://arxiv.org/abs/2209.07511).
+In these experiments, we apply the same framework of CLIP test-time adaptation as [`TPT`](https://arxiv.org/abs/2209.07511). Instead of learning a prompt per image on the fly, the projection matrix is trained on the fly. This variant of ProLIP is called test-time ProLIP. It is one order of magnitude faster than `TPT` as backpropagation is limited to the projection matrix, and achieves surprising strong performance on test-time adaptation. Test-time ProLIP is illustrated in the figure below, taken from [`TPT`](https://arxiv.org/abs/2209.07511).
 
 <div align="center">
-  <img width=900  src="Figures/test_time_prolip.png"/>
+  <img width=900  src="figures/test_time_prolip.png"/>
 </div>
 
 To obtain the results of test-time adaptation of CLIP using ProLIP, i.e. training the projection matrix for 1 iteration per image on the fly, please run:
